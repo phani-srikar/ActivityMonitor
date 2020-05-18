@@ -1,22 +1,57 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "change me",
+      "invocationName": "activity monitor",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
-          "samples": []
+          "samples": [
+            "stop",
+            "cancel",
+            "quit",
+            "exit"
+          ]
         },
         {
           "name": "AMAZON.HelpIntent",
-          "samples": []
+          "slots": [
+            {
+              "name": "helpTopic",
+              "type": "helpTopicType",
+              "samples": [
+                "help with {helpTopic}",
+                "help {helpTopic}",
+                "information about {helpTopic}",
+                "need help with {helpTopic}"
+              ]
+            }
+          ],
+          "samples": [
+            "help",
+            "information",
+            "need help",
+            "give more information",
+            "explain",
+            "give explanation",
+            "help me",
+            "need information",
+            "help with {helpTopic}",
+            "help {helpTopic}",
+            "information about {helpTopic}",
+            "need help with {helpTopic}"
+          ]
         },
         {
           "name": "AMAZON.StopIntent",
-          "samples": []
+          "samples": [
+            "stop",
+            "cancel",
+            "quit",
+            "exit"
+          ]
         },
         {
-          "name": "HelloWorldIntent",
+          "name": "HelloIntent",
           "slots": [],
           "samples": [
             "hello",
@@ -27,14 +62,108 @@
             "say hello world",
             "say hello"
           ]
-        },
-        {
-          "name": "AMAZON.NavigateHomeIntent",
-          "samples": []
         }
       ],
-      "types": []
-    }
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "add activity",
+                "synonyms": [
+                  "note activity",
+                  "record activity",
+                  "track activity",
+                  "monitor activity",
+                  "activity"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "last occurrence",
+                "synonyms": [
+                  "last time",
+                  "previous time",
+                  "time of occurrence",
+                  "occurrence",
+                  "last activity"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "activity count",
+                "synonyms": [
+                  "count for activity",
+                  "number of times",
+                  "activity frequency",
+                  "count",
+                  "number",
+                  "frequency"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "list activities",
+                "synonyms": [
+                  "list my activities",
+                  "show my activity",
+                  "tell activities",
+                  "list activity",
+                  "list",
+                  "all activities",
+                  "know activities",
+                  "my activities"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "delete activity",
+                "synonyms": [
+                  "delete activity",
+                  "erase my activity",
+                  "delete"
+                ]
+              }
+            }
+          ],
+          "name": "helpTopicType"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "AMAZON.HelpIntent",
+          "confirmationRequired": false,
+          "slots": [
+            {
+              "name": "helpTopic",
+              "type": "helpTopicType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Intent-AMAZON.HelpIntent.IntentSlot-helpTopic"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Intent-AMAZON.HelpIntent.IntentSlot-helpTopic",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What do you need help with? You can say 'add activity' or 'last occurrence' or 'activity count' or 'list activities' or 'delete activity'"
+          }
+        ]
+      }
+    ]
   },
   "version": "1"
 }

@@ -10,7 +10,23 @@
     "publishingInformation": {
       "locales": {
         "en-US": {
-          "name": "Activity Monitor"
+          "name": "Activity Monitor",
+          "summary": "It is common in our daily lives to forget when we performed any activity (feeding dogs, drinking water, exercising etc). This skill helps you to monitor your activities if you let the activity monitor know when you perform an activity.",
+          "examplePhrases": [
+            "Alexa, open activity monitor",
+            "Alexa, tell activity monitor"
+          ],
+          "keywords": [
+            "Activity Monitor",
+            "Activity",
+            "Monitor",
+            "logs",
+            "reminders",
+            "assistant",
+            "tracker",
+            "activity tracker"
+          ],
+          "description": "This skill helps you to monitor your activities. It supports any kind of activity and also gives you information about when the activity was last performed, number of times an activity is performed since a given time etc."
         }
       }
     }
